@@ -1,1 +1,2 @@
-location.reload()
+// location.reload()
+console.log('hello world')
