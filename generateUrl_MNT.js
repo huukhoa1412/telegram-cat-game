@@ -19,12 +19,7 @@ function generateUrl() {
     let hash = telegramData.hash;
 
     // Generate URL  
-    //https://gs1.catizen.ai:8882/api/bot/gameapplogin?
-    // let url = `https://game.catizen.ai/tgCat/game/catizen240403.html?tok`;
-    //let url = `https://tgsvr.catizen.ai/api/bot/tmas/gameapp/catizenbot#tgWebAppData=query_id%3D${query_id}%26user%3D${user}%26auth_date%3D${auth_date}%26hash%3D${hash}&tgWebAppVersion=${tgWebAppVersion}&tgWebAppPlatform=${tgWebAppPlatform}&tgWebAppBotInline=${tgWebAppBotInline}&tgWebAppThemeParams=${tgWebAppThemeParams}`;
-    //https://game.catizen.ai/tgCat/game/mantle.html?ts=1714056777246&botname=Catizen_Mntbot
-    let url = `https://game.catizen.ai/tgCat/game/mantle.html?ts=1714056777246&botname=Catizen_Mntbot#tgWebAppData=query_id%3D${query_id}%26user%3D${user}%26auth_date%3D${auth_date}%26hash%3D${hash}&tgWebAppVersion=${tgWebAppVersion}&tgWebAppPlatform=${tgWebAppPlatform}&tgWebAppBotInline=${tgWebAppBotInline}&tgWebAppThemeParams=${tgWebAppThemeParams}`;
-    //https://tgsvr.catizen.ai/api/bot/gameapplogin?botname=catizen
+    let url = `https://tgsvr.catizen.ai/api/bot/tmas/gameapp/Catizen_Mntbot?#tgWebAppData=query_id%3D${query_id}%26user%3D${user}%26auth_date%3D${auth_date}%26hash%3D${hash}&tgWebAppVersion=${tgWebAppVersion}&tgWebAppPlatform=${tgWebAppPlatform}&tgWebAppBotInline=${tgWebAppBotInline}&tgWebAppThemeParams=${tgWebAppThemeParams}`;
     return url;
 }
 generateUrl()
