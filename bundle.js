@@ -8758,21 +8758,21 @@
     }
     class Vt {
         constructor() {
-            this.m_convertAddress = "";
-            let e = this.m_tonConnect = new window.TON_CONNECT_UI.TonConnectUI({
-                manifestUrl: Mmobay.MConfig.tonConnectManifestUrl
-            });
-            e.setConnectRequestParameters({
-                state: "ready",
-                value: {
-                    tonProof: "success"
-                }
-            }),
-                e.connectionRestored.then(e => {
-                    e ? (console.log("Connection restored."),
-                        N.event(m.WALLET_CONNECTED)) : console.log("Connection was not restored.")
-                }
-                )
+            // this.m_convertAddress = "";
+            // let e = this.m_tonConnect = new window.TON_CONNECT_UI.TonConnectUI({
+            //     manifestUrl: Mmobay.MConfig.tonConnectManifestUrl
+            // });
+            // e.setConnectRequestParameters({
+            //     state: "ready",
+            //     value: {
+            //         tonProof: "success"
+            //     }
+            // }),
+            //     e.connectionRestored.then(e => {
+            //         e ? (console.log("Connection restored."),
+            //             N.event(m.WALLET_CONNECTED)) : console.log("Connection was not restored.")
+            //     }
+            //     )
         }
         get connected() {
             return this.m_tonConnect.connected
