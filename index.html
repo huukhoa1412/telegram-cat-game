@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <title>Catizen</title>
+    <meta charset='utf-8' />
+    <meta name='renderer' content='webkit' />
+    <meta name='viewport'
+        content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' />
+    <meta name='apple-mobile-web-app-capable' content='yes' />
+    <meta name='full-screen' content='true' />
+    <meta name='x5-fullscreen' content='true' />
+    <meta name='360-fullscreen' content='true' />
+    <meta name='laya' screenorientation='portrait' /> 
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
+    <meta http-equiv='expires' content='0' />
+    <meta http-equiv="pragma" content="no-cache">  
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, no-siteapp" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+
+<body>
+    <!-- adapt pc slide background div -->
+    <div id="mmobayContainer"></div>
+    <!-- fix scroll -->
+    <div id="assist-scroll-container" style="overflow: scroll;"></div>
+    
+    <script type="text/javascript"> 
+        function loadLib(url) {
+            var script = document.createElement("script");
+            script.async = false;
+            script.src = url;
+            document.body.appendChild(script);
+        }
+
+        function GetRequest() {
+            var url = location.search; 
+            var theRequest = {};
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&"); 
+                for(var i = 0; i < strs.length; i ++) {
+                    var pair = strs[i].split("=");
+                    theRequest[pair[0]]=unescape(pair[1]);
+                }
+            }
+            return theRequest;
+        }
+
+        function HandleUrlPara(urlParas) {
+            var url = document.URL, resultUrl = '' 
+            var baseUrl = window.location.origin + window.location.pathname
+            var paras = {}
+            var remainKeys = ["ts", "botname", "appname"]
+            var remainRequest = [];
+            for(var k in urlParas){
+                if (remainKeys.indexOf(k) != -1){
+                    var v = escape(urlParas[k]);
+                    if (k == 'ts') {
+                        v = Date.now();
+                    }
+                    remainRequest.push(`${k}=${v}`);
+                }
+            }
+            if (remainRequest.length){
+                baseUrl += "?" + remainRequest.join("&")
+            }
+            // console.log("baseUrl==== ", baseUrl)
+            // history.replaceState(null, null, baseUrl)
+        }
+        window.GameUrlParas = GetRequest();
+        HandleUrlPara(window.GameUrlParas);
+        //
+        if (window["Telegram"]) {
+            window["Telegram"].WebApp.ready();
+            window["Telegram"].WebApp.expand();
+        }
+    </script> 
+    <script type="text/javascript" src="loader/index.tgbot-89bcd8d5ba.js"></script>   
+</body>
+
+</html>
