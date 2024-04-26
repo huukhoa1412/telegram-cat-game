@@ -26,7 +26,7 @@ function convertObjectToURLLink(obj) {
     return `${baseLink}?${queryParams}`;
 }
 
-const initDataUnsafe = JSON.parse(sessionStorage.getItem("__telegram__initParams"));
+const initDataUnsafe = JSON.parse(Telegram.WebApp.initDataUnsafe);
 
 const urlLink = convertObjectToURLLink(initDataUnsafe);
 console.log(urlLink);
