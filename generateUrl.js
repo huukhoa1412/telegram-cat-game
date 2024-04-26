@@ -14,7 +14,7 @@ function convertSessionStorageToURLLink() {
     const tgusername = Telegram.WebApp.initDataUnsafe.user.username;
     const ts = initData.auth_date;
     const sign = initData.hash;
-    const queryData = encodeURIComponent(JSON.stringify(initData));
+    const queryData = encodeURIComponent(JSON.stringify(initData.tgWebAppData));
 
     const queryParams = `botname=${botname}&tguserid=${tguserid}&tgusername=${tgusername}&ts=${ts}&sign=${sign}#tgWebAppData=${queryData}&tgWebAppVersion=${initData.tgWebAppVersion}&tgWebAppPlatform=${initData.tgWebAppPlatform}&tgWebAppBotInline=${initData.tgWebAppBotInline}&tgWebAppThemeParams=${encodeURIComponent(initData.tgWebAppThemeParams)}`;
 
