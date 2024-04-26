@@ -2296,6 +2296,7 @@
                     this.closeSocket(),
                     console.log("socket clean by disconnect"),
                     this.clean())
+            
         }
         closeSocket() {
             this.ws.close(),
@@ -8498,7 +8499,8 @@
                 )
         }
         reconnect() {
-            ae && ae.show(),
+            //Fix me
+            // ae && ae.show(),
                 Laya.timer.clear(this, this._callLateReconnect),
                 this._disConnectSocket(),
                 N.event(m.NET_DISCONNECTED),
