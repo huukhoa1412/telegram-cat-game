@@ -2440,7 +2440,7 @@
                 var a = ++this._transId
                     , n = this.send(o, r);
                 window.wsStatus = this.ws.readyState == 1 ? "Online" : "---"
-                document.title = `${window.wsStatus} | ${a} | ${N.cat.cats.filter(i => i)}`
+                document.title = `${window.wsStatus} | ${a} | ${N.cat.allcats.filter(i => i)}`
                 if (0 == n)
                     s({
                         code: 6,
