@@ -1,5 +1,5 @@
 function convertObjectToURLLink(obj) {
-    const baseLink = "https://tgsvr.catizen.ai/api/bot/tmas/gameapp/Catizen_Mntbot";
+    const baseLink = "https://tgsvr.catizen.ai/api/bot/tmas/gameapp/catizenbot";
     const startParam = obj.start_param;
     const userData = encodeURIComponent(JSON.stringify(obj.user));
     const chatInstance = obj.chat_instance;
