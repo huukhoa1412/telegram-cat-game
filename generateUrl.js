@@ -10,8 +10,8 @@ function convertSessionStorageToURLLink() {
     const initData = JSON.parse(sessionStorageData);
     const baseLink = "https://tgsvr.catizen.ai/api/bot/gameapplogin";
     const botname = "catizenbot";
-    const tguserid = initData.user.id;
-    const tgusername = initData.user.username;
+    const tguserid = Telegram.WebApp.initDataUnsafe.user.id;
+    const tgusername = Telegram.WebApp.initDataUnsafe.user.username;
     const ts = initData.auth_date;
     const sign = initData.hash;
     const queryData = encodeURIComponent(JSON.stringify(initData));
