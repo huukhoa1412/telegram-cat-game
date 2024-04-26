@@ -1,5 +1,5 @@
 function convertObjectToURLLink(obj) {
-    const baseLink = "https://tgsvr.catizen.ai/api/bot/tmas/gameapp/catizenbot";
+    const baseLink = "https://tgsvr.catizen.ai/api/bot/tmas/gameapp/Catizen_Mntbot";
     const startParam = obj.start_param;
     const userData = encodeURIComponent(JSON.stringify(obj.user));
     const chatInstance = obj.chat_instance;
@@ -9,15 +9,15 @@ function convertObjectToURLLink(obj) {
 
     let queryParams = `tgWebAppData=user%3D${userData}%26auth_date%3D${authDate}%26hash%3D${hash}`;
     
-    if (startParam) {
-        queryParams += `%26chat_instance%3D${startParam}`;
+    if (startParam !== null && startParam !== undefined) {
+        queryParams += `%26start_param%3D${startParam}`;
     }
     
-    if (chatInstance) {
+    if (chatInstance !== null && chatInstance !== undefined) {
         queryParams += `%26chat_instance%3D${chatInstance}`;
     }
     
-    if (chatType) {
+    if (chatType !== null && chatType !== undefined) {
         queryParams += `%26chat_type%3D${chatType}`;
     }
 
@@ -26,7 +26,7 @@ function convertObjectToURLLink(obj) {
     return `${baseLink}?${queryParams}`;
 }
 
-const initDataUnsafe = JSON.parse(sessionStorage.getItem("__telegram__initParams"));
+const initDataUnsafe = Telegram.WebApp.initDataUnsafe;
 
 const urlLink = convertObjectToURLLink(initDataUnsafe);
 console.log(urlLink);
