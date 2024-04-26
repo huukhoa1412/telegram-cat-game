@@ -3497,7 +3497,8 @@
             return k(pb.RandomEventReq.create(), d.RandomEventReq, pb.IRandomEventAck).then(e => {
                 this.randomEvent = e.randomEventData,
                     N.event(m.RANDOM_EVENT_TIME_CHANGE),
-                    N.event(m.UPDATE_SPEED)
+                    N.event(m.UPDATE_SPEED),
+                console.log(this.randomEvent)
             }
             )
         }
