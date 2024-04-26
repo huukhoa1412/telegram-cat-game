@@ -3497,8 +3497,8 @@
             return k(pb.RandomEventReq.create(), d.RandomEventReq, pb.IRandomEventAck).then(e => {
                 this.randomEvent = e.randomEventData,
                     N.event(m.RANDOM_EVENT_TIME_CHANGE),
-                    N.event(m.UPDATE_SPEED),
-                console.log(this.randomEvent)
+                    N.event(m.UPDATE_SPEED)
+                
             }
             )
         }
@@ -6682,8 +6682,8 @@
                 this.m_backFromChain = !1,
                 this.m_spineStr = e,
                 this.m_backFromChain = t
-
-                if(w.fishCoin > +Data.gameConf.randomEventCfg.costFish){
+                //Auto buy
+                if(w.randomEvent.boxNum && w.fishCoin > +Data.gameConf.randomEventCfg.costFish){
                     this.onClickBuy()
                 }else
                     this.onClickFree()
