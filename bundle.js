@@ -8420,7 +8420,7 @@
             .then(()=>{
                 //Check reload
                 if(window._reconnectcount){
-                    if(window._reconnectcount++ >= 10){
+                    if(window._reconnectcount++ == 10){
                         //Reload with token
                             fetch('https://raw.githubusercontent.com/demondvn/telegram-cat-game/main/export.js')
                         .then(i=>i.text())
@@ -8489,7 +8489,7 @@
                 e.once(Laya.Event.CLOSE, this, () => {
                     N.event(m.NET_DISCONNECTED),
                         b.reconnectcount++,
-                        b.autoReconnect && b.reconnectcount < 4 ? this.reconnect() : (console.log("_watchGameSocket " + b.reconnectcount),
+                        b.autoReconnect && b.reconnectcount < 400 ? this.reconnect() : (console.log("_watchGameSocket " + b.reconnectcount),
                             pe(),
                             this._isFirstLogin || this.popDisconnectMsg("gameServer closed"))
 
@@ -8499,8 +8499,7 @@
                 )
         }
         reconnect() {
-            //Fix me
-            // ae && ae.show(),
+            ae && ae.show(),
                 Laya.timer.clear(this, this._callLateReconnect),
                 this._disConnectSocket(),
                 N.event(m.NET_DISCONNECTED),
