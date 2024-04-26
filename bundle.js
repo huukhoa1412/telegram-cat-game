@@ -7246,14 +7246,14 @@
                                         me(Mt, {
                                             params: []
                                         }).then(e => {
-                                            t.destroyed ? e.destroy() : (t.addChild(e),
-                                                e.centerX = +e.width / 2,
-                                                e.y = 150)
+                                            // t.destroyed ? e.destroy() : (t.addChild(e),
+                                            //     e.centerX = +e.width / 2,
+                                            //     e.y = 150)
                                         }
                                         )
                                     }
-                                    ),
-                                    s && t.event(Laya.Event.CLICK, [null, !0])
+                                    )
+                                    // s && t.event(Laya.Event.CLICK, [null, !0])
                             }
                     } else
                         x.reqRandomEvent().then(() => {
