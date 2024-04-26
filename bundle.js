@@ -6816,7 +6816,8 @@
                 this.m_airDrops = {},
                 this.m_mouseCat = -1,
                 this.count = 0,
-                this.m_checkTime = 0
+                this.m_checkTime = 0,
+                this.onClickAuto()
         }
         onAwake() {
             super.onAwake(),
