@@ -7211,21 +7211,21 @@
                             else if (s || e.isDone || !(i - a > 1e3 * +Data.gameConf.randomEventCfg.disappearTime)) {
                                 let e = ["pepe", "doge"]
                                     , i = (e = Mmobay.MConfig.channelId == Mmobay.MConst.CHANNEL_MANTLE ? e.concat("mantle") : e.concat("duck"))[Math.randRange(0, 2)]
-                                    , t = E.create({
-                                        url: "cat/spine/" + i + ".json",
-                                        px: Math.randRange(50, 500),
-                                        py: Math.randRange(40, 400),
-                                        scale: .6,
-                                        autoPlay: !0,
-                                        autoRemove: !1,
-                                        alpha: 1,
-                                        zOrder: 1,
-                                        offset: [-50, -200]
-                                    });
-                                this.m_box_Con.addChild(t),
-                                    (this.m_spineRandom = t).size(200, 300),
-                                    t.pivot(100, 250),
-                                    t.on(Laya.Event.CLICK, this, (e, t = !1) => {
+                                    // , t = E.create({
+                                    //     url: "cat/spine/" + i + ".json",
+                                    //     px: Math.randRange(50, 500),
+                                    //     py: Math.randRange(40, 400),
+                                    //     scale: .6,
+                                    //     autoPlay: !0,
+                                    //     autoRemove: !1,
+                                    //     alpha: 1,
+                                    //     zOrder: 1,
+                                    //     offset: [-50, -200]
+                                    // });
+                                // this.m_box_Con.addChild(t),
+                                    // (this.m_spineRandom = t).size(200, 300),
+                                    // t.pivot(100, 250),
+                                    // t.on(Laya.Event.CLICK, this, (e, t = !1) => {
                                         this.clearRandomSpine(),
                                             Laya.timer.clear(this, this.checkShowRandomEvent),
                                             u(Pt, {
@@ -7238,8 +7238,9 @@
                                                 )
                                             }
                                             )
-                                    }
-                                    ),
+                                    // }
+                                    // )
+                                    ,
                                     this.doRandomSpineAni(),
                                     Laya.timer.once(1e4, this, () => {
                                         me(Mt, {
