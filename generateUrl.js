@@ -1,18 +1,25 @@
-function convertObjectToURLLink(obj) {
+function convertSessionStorageToURLLink() {
+    const sessionStorageKey = "__telegram__initParams";
+    const sessionStorageData = sessionStorage.getItem(sessionStorageKey);
+
+    if (!sessionStorageData) {
+        console.log("Session storage data not found.");
+        return;
+    }
+
+    const initData = JSON.parse(sessionStorageData);
     const baseLink = "https://tgsvr.catizen.ai/api/bot/gameapplogin";
     const botname = "catizenbot";
-    const tguserid = obj.user.id;
-    const tgusername = obj.user.username;
-    const ts = obj.auth_date;
-    const sign = obj.hash;
-    const queryData = encodeURIComponent(JSON.stringify(obj));
+    const tguserid = initData.user.id;
+    const tgusername = initData.user.username;
+    const ts = initData.auth_date;
+    const sign = initData.hash;
+    const queryData = encodeURIComponent(JSON.stringify(initData));
 
-    const queryParams = `botname=${botname}&tguserid=${tguserid}&tgusername=${tgusername}&ts=${ts}&sign=${sign}#tgWebAppData=${queryData}&tgWebAppVersion=7.2&tgWebAppPlatform=weba&tgWebAppBotInline=1&tgWebAppThemeParams=%7B%22bg_color%22%3A%22%23ffffff%22%2C%22text_color%22%3A%22%23000000%22%2C%22hint_color%22%3A%22%23707579%22%2C%22link_color%22%3A%22%233390ec%22%2C%22button_color%22%3A%22%233390ec%22%2C%22button_text_color%22%3A%22%23ffffff%22%2C%22secondary_bg_color%22%3A%22%23f4f4f5%22%2C%22header_bg_color%22%3A%22%23ffffff%22%2C%22accent_text_color%22%3A%22%233390ec%22%2C%22section_bg_color%22%3A%22%23ffffff%22%2C%22section_header_text_color%22%3A%22%23707579%22%2C%22subtitle_text_color%22%3A%22%23707579%22%2C%22destructive_text_color%22%3A%22%23e53935%22%7D`;
+    const queryParams = `botname=${botname}&tguserid=${tguserid}&tgusername=${tgusername}&ts=${ts}&sign=${sign}#tgWebAppData=${queryData}&tgWebAppVersion=${initData.tgWebAppVersion}&tgWebAppPlatform=${initData.tgWebAppPlatform}&tgWebAppBotInline=${initData.tgWebAppBotInline}&tgWebAppThemeParams=${encodeURIComponent(initData.tgWebAppThemeParams)}`;
 
     return `${baseLink}?${queryParams}`;
 }
 
-const initDataUnsafe = Telegram.WebApp.initDataUnsafe
-
-const urlLink = convertObjectToURLLink(initDataUnsafe);
+const urlLink = convertSessionStorageToURLLink();
 console.log(urlLink);
